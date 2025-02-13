@@ -1,0 +1,169 @@
+/* Estilos Generales */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    box-sizing: border-box; /* Asegura que el ancho incluya padding y border */
+    width: 100%;
+}
+
+body {
+    overflow-x: auto; /* Permite el scroll horizontal */
+    width: 100%;
+    background: linear-gradient(135deg, #8d04bf, #480459, #7605a6); /* Cambiado a color hexadecimal */
+    background-size: cover;
+    font-family: 'Courgette', cursive; /* Fuente global */
+}
+
+/* Título */
+.title {
+    padding-top: 9%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 3em; /* Cambiado a em para mejor escalabilidad */
+    position: relative;
+    z-index: 20; /* Asegura que el texto esté por encima de las nubes */
+}
+
+/* Imagen central */
+section img {
+    width: 300px; /* Aumentamos el tamaño */
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.contenedor {
+    position: relative; /* Asegura que el posicionamiento sea relativo al contenedor */
+}
+
+.contenedor img {
+    width: 45%;
+    height: auto; /* Mantiene la relación de aspecto */
+    position: absolute; /* Permite mover la imagen libremente */
+    opacity: 0.85; /* Opacidad ligeramente reducida */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+/* Nubes flotantes */
+.dos, .tres, .cuatro {
+    position: absolute;
+    z-index: 5;
+    filter: blur(1.5px); /* Efecto difuminado */
+    animation: flotandoSuave 7s infinite ease-in-out alternate;
+    
+}
+
+.dos {
+    left: 60%; /* Mueve la imagen a la izquierda */
+    top: -150px; /* Aumenta el valor para bajarla más */
+    animation-duration: 8s; /* Velocidad de animación */
+}
+
+.tres {
+    left: -8%; /* Mueve la imagen a la izquierda */
+    top: -140px; /* Mueve la imagen hacia arriba */
+    animation-duration: 10s;
+}
+
+.cuatro {
+    left: 25%; /* Espacio entre las imágenes (ajusta según sea necesario) */
+    top: -180px; /* Mueve la imagen hacia arriba */
+    z-index: -9999;
+    animation-duration: 12s; /* Velocidad de animación */
+}
+
+.button {
+    color: #c300ff;
+    background: linear-gradient(135deg, #ffffff, #939193, #efe6f2); /* Cambiado a color hexadecimal */
+    font-size: larger; /* Aumenta el tamaño de la fuente */
+    text-align: center; /* Centra el texto */
+    padding: 10px 20px; /* Agrega un poco de espacio interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    max-width: 200px; /* Establece un ancho máximo */
+    width: auto; /* Ajusta el ancho automáticamente */
+    display: block; /* Cambiado a block para que ocupe el ancho completo */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+}
+
+/* Animación flotandoSuave */
+@keyframes flotandoSuave {
+    0% { transform: translateX(-15px) translateY(0); }
+    50% { transform: translateX(15px) translateY(-20px); }
+    100% { transform: translateX(-15px) translateY(0); }
+}
+
+/* Mensaje de respuesta */
+.message {
+    text-align: center;
+    color: #ffffff;
+    padding-top: 4%;
+    font-size: 3em; /* Cambiado a em para mejor escalabilidad */
+    display: none;
+}
+
+/* Contenedor de Botones */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 20px; /* Margen superior */
+}
+
+/* Botones */
+.btn-success, .btn-danger {
+    font-family: 'Courgette', cursive;
+    background: linear-gradient(135deg, #ffffff, #939193, #efe6f2); /* Cambiado a color hexadecimal */
+    color: #000000;
+    padding: 8px 18px; /* Reduce el espacio interno */
+    border: none;
+    border-radius: 50px;
+    font-size: 1.8rem; /* Reduce el tamaño del texto */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-success:hover, .btn-danger:hover {
+    transform: translateY(-2px); /* Reduce el efecto de elevación */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.4); /* Sombra menos intensa */
+}
+
+/* Animación de rebote de los corazones */
+.floating-heart {
+    position: absolute;
+    animation: floatHeart 5s forwards ease-in-out;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50vh) scale(1.2); /* Corazón sube y se agranda */
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100vh) scale(0.8); /* Corazón desaparece mientras sube */
+        opacity: 0;
+    }
+}
+
+/* Animación de deslizamiento hacia arriba del mensaje */
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
